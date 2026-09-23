@@ -1,0 +1,428 @@
+{
+  "dataset": {
+    "messages": 3000,
+    "channel": "free-for-all"
+  },
+  "index_bytes": {
+    "old_sqlite": 35262464,
+    "lancedb": 16366339
+  },
+  "summary": {
+    "old_sqlite_fts5": {
+      "mean_precision_at_10": 0.51,
+      "queries_with_zero_results": 4,
+      "mean_ms": 3.1,
+      "median_ms": 3.1
+    },
+    "lance_fts": {
+      "mean_precision_at_10": 0.71,
+      "queries_with_zero_results": 0,
+      "mean_ms": 13.2,
+      "median_ms": 11.1
+    },
+    "lance_vector": {
+      "mean_precision_at_10": 0.68,
+      "queries_with_zero_results": 0,
+      "mean_ms": 229.4,
+      "median_ms": 219.3
+    },
+    "lance_hybrid": {
+      "mean_precision_at_10": 0.74,
+      "queries_with_zero_results": 0,
+      "mean_ms": 610.3,
+      "median_ms": 260.9
+    }
+  },
+  "per_query": [
+    {
+      "query": "ความจำ",
+      "note": "ไทยล้วน มีคำนี้ตรง ๆ ในคลัง",
+      "judge": "ความจำ|memory|จำได้|remember",
+      "engines": {
+        "old_sqlite_fts5": {
+          "returned": 10,
+          "relevant": 10,
+          "precision_at_10": 1.0,
+          "first_relevant_rank": 1,
+          "ms": 1.0,
+          "top1": "ตอนนี้ทางเราต่อ Discord กับ AI ผ่านตัว bot ที่เขียนเอง (discord.js/TypeScript) แล้วให้ bot"
+        },
+        "lance_fts": {
+          "returned": 10,
+          "relevant": 10,
+          "precision_at_10": 1.0,
+          "first_relevant_rank": 1,
+          "ms": 27.7,
+          "top1": "ตอนนี้ทางเราต่อ Discord กับ AI ผ่านตัว bot ที่เขียนเอง (discord.js/TypeScript) แล้วให้ bot"
+        },
+        "lance_vector": {
+          "returned": 10,
+          "relevant": 10,
+          "precision_at_10": 1.0,
+          "first_relevant_rank": 1,
+          "ms": 324.0,
+          "top1": "Remember"
+        },
+        "lance_hybrid": {
+          "returned": 10,
+          "relevant": 10,
+          "precision_at_10": 1.0,
+          "first_relevant_rank": 1,
+          "ms": 266.0,
+          "top1": "🍺 ขออธิบายเรื่อง Memory ของ Oracle ครับพี่นัท (สวัสดีมอร์สด้วยครับ 👋)\n\nของผม (Weizen) เก็บ"
+        }
+      }
+    },
+    {
+      "query": "ฐานข้อมูล",
+      "note": "ไทยล้วน + คำอังกฤษร่วมความหมาย",
+      "judge": "ฐานข้อมูล|database|sqlite|lancedb|db\\b",
+      "engines": {
+        "old_sqlite_fts5": {
+          "returned": 7,
+          "relevant": 7,
+          "precision_at_10": 0.7,
+          "first_relevant_rank": 1,
+          "ms": 1.9,
+          "top1": "✅ **พิสูจน์ให้ครับ — และไปเจอหลักฐานที่แข็งกว่าที่ผมอ้างไว้เดิม**\n\n**① ข้อ FTS5 ตัดไทยไม่เ"
+        },
+        "lance_fts": {
+          "returned": 10,
+          "relevant": 7,
+          "precision_at_10": 0.7,
+          "first_relevant_rank": 1,
+          "ms": 8.2,
+          "top1": "✅ **พิสูจน์ให้ครับ — และไปเจอหลักฐานที่แข็งกว่าที่ผมอ้างไว้เดิม**\n\n**① ข้อ FTS5 ตัดไทยไม่เ"
+        },
+        "lance_vector": {
+          "returned": 10,
+          "relevant": 6,
+          "precision_at_10": 0.6,
+          "first_relevant_rank": 1,
+          "ms": 218.7,
+          "top1": "เราจะออกแบบ Database เก็บสิ่งพวกนี้ได้ยังไง แล้วเราจะออกแบบกลไกการพิสูจน์ได้ยังไงอ่ะครับ?"
+        },
+        "lance_hybrid": {
+          "returned": 10,
+          "relevant": 9,
+          "precision_at_10": 0.9,
+          "first_relevant_rank": 1,
+          "ms": 1248.0,
+          "top1": "✅ **พิสูจน์ให้ครับ — และไปเจอหลักฐานที่แข็งกว่าที่ผมอ้างไว้เดิม**\n\n**① ข้อ FTS5 ตัดไทยไม่เ"
+        }
+      }
+    },
+    {
+      "query": "หลักฐาน",
+      "note": "ไทยล้วน",
+      "judge": "หลักฐาน|proof|พิสูจน์|evidence",
+      "engines": {
+        "old_sqlite_fts5": {
+          "returned": 10,
+          "relevant": 10,
+          "precision_at_10": 1.0,
+          "first_relevant_rank": 1,
+          "ms": 1.4,
+          "top1": "## สรุปตาราง adopter ที่ verify แล้ว\n\n**Cloudflare (repo ใหม่)**\n• สถานะ: 🟡 mid-migration "
+        },
+        "lance_fts": {
+          "returned": 10,
+          "relevant": 10,
+          "precision_at_10": 1.0,
+          "first_relevant_rank": 1,
+          "ms": 3.7,
+          "top1": "## สรุปตาราง adopter ที่ verify แล้ว\n\n**Cloudflare (repo ใหม่)**\n• สถานะ: 🟡 mid-migration "
+        },
+        "lance_vector": {
+          "returned": 10,
+          "relevant": 4,
+          "precision_at_10": 0.4,
+          "first_relevant_rank": 1,
+          "ms": 229.2,
+          "top1": "give  me the proof"
+        },
+        "lance_hybrid": {
+          "returned": 10,
+          "relevant": 8,
+          "precision_at_10": 0.8,
+          "first_relevant_rank": 1,
+          "ms": 255.9,
+          "top1": "## คำตอบ\nหลักฐานของงาน x402 ผมส่งให้ครบแล้วครับ ไม่มีอะไรใหม่เพิ่มจากนี้ — สรุปที่เดียวให้"
+        }
+      }
+    },
+    {
+      "query": "ค้นหาข้อความเก่าในห้องแชท",
+      "note": "ไทย paraphrase ไม่มีในคลังตรง ๆ",
+      "judge": "ค้นหา|search|backfill|ข้อความเก่า|history",
+      "engines": {
+        "old_sqlite_fts5": {
+          "returned": 0,
+          "relevant": 0,
+          "precision_at_10": 0.0,
+          "first_relevant_rank": null,
+          "ms": 4.5,
+          "top1": null
+        },
+        "lance_fts": {
+          "returned": 10,
+          "relevant": 7,
+          "precision_at_10": 0.7,
+          "first_relevant_rank": 1,
+          "ms": 16.4,
+          "top1": "ต้องให้ BM ทำเอง ผมทำแทนไม่ได้**\n```\n1. review diff แล้ว wrangler deploy   (repo ไม่ใช่ของ"
+        },
+        "lance_vector": {
+          "returned": 10,
+          "relevant": 6,
+          "precision_at_10": 0.6,
+          "first_relevant_rank": 2,
+          "ms": 178.0,
+          "top1": "use maw atlas or any skills to analyse all message above  https://discordapp.com/channels/"
+        },
+        "lance_hybrid": {
+          "returned": 10,
+          "relevant": 6,
+          "precision_at_10": 0.6,
+          "first_relevant_rank": 1,
+          "ms": 1099.8,
+          "top1": "ต้องให้ BM ทำเอง ผมทำแทนไม่ได้**\n```\n1. review diff แล้ว wrangler deploy   (repo ไม่ใช่ของ"
+        }
+      }
+    },
+    {
+      "query": "โมเดลฝังเวกเตอร์ภาษาไทย",
+      "note": "ไทย paraphrase ศัพท์เทคนิค",
+      "judge": "embed|bge|nomic|minilm|vector|เวกเตอร์",
+      "engines": {
+        "old_sqlite_fts5": {
+          "returned": 0,
+          "relevant": 0,
+          "precision_at_10": 0.0,
+          "first_relevant_rank": null,
+          "ms": 1.1,
+          "top1": null
+        },
+        "lance_fts": {
+          "returned": 6,
+          "relevant": 2,
+          "precision_at_10": 0.2,
+          "first_relevant_rank": 3,
+          "ms": 3.6,
+          "top1": "555 โหดจริงครับพี่ 🌿 \"รัสเซีย\" นี่ voice-to-text เพี้ยนแน่ ๆ — หรือพี่หมายถึงหนังสือมัน**ล"
+        },
+        "lance_vector": {
+          "returned": 10,
+          "relevant": 10,
+          "precision_at_10": 1.0,
+          "first_relevant_rank": 1,
+          "ms": 286.9,
+          "top1": "🧪 **แล้วผมไปเทสต์ของจริงต่อ — เพราะคำถามที่ยังไม่มีใครตอบคือ \"แล้วภาษาไทยล่ะ?\"**\n\nทั้ง Tur"
+        },
+        "lance_hybrid": {
+          "returned": 10,
+          "relevant": 7,
+          "precision_at_10": 0.7,
+          "first_relevant_rank": 1,
+          "ms": 241.5,
+          "top1": "📋 **ข้อเสนอปรับปรุง relic — และผมต้องสารภาพเรื่องหลักฐานก่อน**\n\n🔴 **ผมพยายามทำ benchmark เ"
+        }
+      }
+    },
+    {
+      "query": "ตัวเลขสองฝั่งไม่ตรงกัน",
+      "note": "ไทย paraphrase เชิงความหมาย",
+      "judge": "parity|ไม่ตรง|mismatch|ต่างกัน|ไม่เท่า",
+      "engines": {
+        "old_sqlite_fts5": {
+          "returned": 0,
+          "relevant": 0,
+          "precision_at_10": 0.0,
+          "first_relevant_rank": null,
+          "ms": 4.4,
+          "top1": null
+        },
+        "lance_fts": {
+          "returned": 10,
+          "relevant": 2,
+          "precision_at_10": 0.2,
+          "first_relevant_rank": 1,
+          "ms": 11.8,
+          "top1": "สรุปตรง ๆ: **ต่ำกว่าหมื่นแถว การทำ index คือจ่ายดิสก์ฟรี ๆ** ANN เริ่มคุ้มจริงราวหลักหมื่น"
+        },
+        "lance_vector": {
+          "returned": 10,
+          "relevant": 2,
+          "precision_at_10": 0.2,
+          "first_relevant_rank": 1,
+          "ms": 200.0,
+          "top1": "ยังทายกันไม่ถูกครับ น่าจะผิดกันไปเยอะเลย. คำตอบอาจจะไม่ตรงนะครับ. ให้ไปเรียนเพิ่มเพื่อคำนว"
+        },
+        "lance_hybrid": {
+          "returned": 10,
+          "relevant": 3,
+          "precision_at_10": 0.3,
+          "first_relevant_rank": 3,
+          "ms": 1049.4,
+          "top1": "จุดที่น่าสนใจ — บทที่ 2.4 ชี้เองว่าเอนจินประกาศ caveat ว่า \"ต่างไม่เกิน **0.04°**\" แต่เทสต"
+        }
+      }
+    },
+    {
+      "query": "workshop",
+      "note": "อังกฤษ token ตรง",
+      "judge": "workshop",
+      "engines": {
+        "old_sqlite_fts5": {
+          "returned": 10,
+          "relevant": 10,
+          "precision_at_10": 1.0,
+          "first_relevant_rank": 1,
+          "ms": 2.5,
+          "top1": "📚 **ทำ workshop ไปกี่อัน — ตอบได้ แต่ต้องบอกก่อนว่า relic ตอบไม่ได้ครับ**\n\n**relic ให้มา 1"
+        },
+        "lance_fts": {
+          "returned": 10,
+          "relevant": 10,
+          "precision_at_10": 1.0,
+          "first_relevant_rank": 1,
+          "ms": 3.9,
+          "top1": "📚 **ทำ workshop ไปกี่อัน — ตอบได้ แต่ต้องบอกก่อนว่า relic ตอบไม่ได้ครับ**\n\n**relic ให้มา 1"
+        },
+        "lance_vector": {
+          "returned": 10,
+          "relevant": 10,
+          "precision_at_10": 1.0,
+          "first_relevant_rank": 1,
+          "ms": 236.1,
+          "top1": "read https://discord.com/channels/1512058941536735383/1512079809021214730 and post the ins"
+        },
+        "lance_hybrid": {
+          "returned": 10,
+          "relevant": 10,
+          "precision_at_10": 1.0,
+          "first_relevant_rank": 1,
+          "ms": 206.4,
+          "top1": "📚 **ทำ workshop ไปกี่อัน — ตอบได้ แต่ต้องบอกก่อนว่า relic ตอบไม่ได้ครับ**\n\n**relic ให้มา 1"
+        }
+      }
+    },
+    {
+      "query": "lancedb",
+      "note": "อังกฤษ token หายาก",
+      "judge": "lance",
+      "engines": {
+        "old_sqlite_fts5": {
+          "returned": 10,
+          "relevant": 10,
+          "precision_at_10": 1.0,
+          "first_relevant_rank": 1,
+          "ms": 5.3,
+          "top1": "dig WS05 discord backfill + compare relic/LanceDB แล้วค่ะพี่นัท — **เจอ gold: WS05 researc"
+        },
+        "lance_fts": {
+          "returned": 10,
+          "relevant": 10,
+          "precision_at_10": 1.0,
+          "first_relevant_rank": 1,
+          "ms": 28.0,
+          "top1": "dig WS05 discord backfill + compare relic/LanceDB แล้วค่ะพี่นัท — **เจอ gold: WS05 researc"
+        },
+        "lance_vector": {
+          "returned": 10,
+          "relevant": 10,
+          "precision_at_10": 1.0,
+          "first_relevant_rank": 1,
+          "ms": 187.4,
+          "top1": "dig find WORKSHOP 05 — discord backfill (midterm) compare to lancedb"
+        },
+        "lance_hybrid": {
+          "returned": 10,
+          "relevant": 10,
+          "precision_at_10": 1.0,
+          "first_relevant_rank": 1,
+          "ms": 1289.2,
+          "top1": "dig find WORKSHOP 05 — discord backfill (midterm) compare to lancedb"
+        }
+      }
+    },
+    {
+      "query": "pull request",
+      "note": "อังกฤษ 2 token",
+      "judge": "pull request|\\bPR\\b|merge",
+      "engines": {
+        "old_sqlite_fts5": {
+          "returned": 5,
+          "relevant": 4,
+          "precision_at_10": 0.4,
+          "first_relevant_rank": 1,
+          "ms": 4.9,
+          "top1": "all proposal / all ideas / all feature requests create in gh issues but if any patcheed us"
+        },
+        "lance_fts": {
+          "returned": 10,
+          "relevant": 7,
+          "precision_at_10": 0.7,
+          "first_relevant_rank": 1,
+          "ms": 18.9,
+          "top1": "all proposal / all ideas / all feature requests create in gh issues but if any patcheed us"
+        },
+        "lance_vector": {
+          "returned": 10,
+          "relevant": 1,
+          "precision_at_10": 0.1,
+          "first_relevant_rank": 1,
+          "ms": 220.0,
+          "top1": "all proposal / all ideas / all feature requests create in gh issues but if any patcheed us"
+        },
+        "lance_hybrid": {
+          "returned": 10,
+          "relevant": 4,
+          "precision_at_10": 0.4,
+          "first_relevant_rank": 1,
+          "ms": 226.7,
+          "top1": "all proposal / all ideas / all feature requests create in gh issues but if any patcheed us"
+        }
+      }
+    },
+    {
+      "query": "how do we prove it actually works",
+      "note": "อังกฤษ paraphrase",
+      "judge": "proof|prove|หลักฐาน|พิสูจน์|verify|ยืนยัน",
+      "engines": {
+        "old_sqlite_fts5": {
+          "returned": 0,
+          "relevant": 0,
+          "precision_at_10": 0.0,
+          "first_relevant_rank": null,
+          "ms": 3.7,
+          "top1": null
+        },
+        "lance_fts": {
+          "returned": 10,
+          "relevant": 6,
+          "precision_at_10": 0.6,
+          "first_relevant_rank": 4,
+          "ms": 10.3,
+          "top1": "Let me dig into the actual SDK source to explain exactly what \"stateless\" means:"
+        },
+        "lance_vector": {
+          "returned": 10,
+          "relevant": 9,
+          "precision_at_10": 0.9,
+          "first_relevant_rank": 1,
+          "ms": 213.4,
+          "top1": "**2) กลไกพิสูจน์ — 3 ชั้น (พิสูจน์บนของจริงแล้ว 2)**\n```\nL1 grounding    ทุก node/edge ต้อ"
+        },
+        "lance_hybrid": {
+          "returned": 10,
+          "relevant": 7,
+          "precision_at_10": 0.7,
+          "first_relevant_rank": 1,
+          "ms": 220.0,
+          "top1": "**2) กลไกพิสูจน์ — 3 ชั้น (พิสูจน์บนของจริงแล้ว 2)**\n```\nL1 grounding    ทุก node/edge ต้อ"
+        }
+      }
+    }
+  ]
+}
