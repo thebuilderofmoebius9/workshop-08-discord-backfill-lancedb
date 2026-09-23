@@ -2,11 +2,14 @@
 from __future__ import annotations
 
 import json
+import sqlite3
 import sys
+import tempfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from lance_backfill.pipeline import iter_messages, redact, search_hybrid  # noqa: E402
+from lance_backfill.compare_live import old_index_counts  # noqa: E402
 
 EXPORT = {
     "guild": {"id": "1", "name": "G"},
@@ -55,6 +58,24 @@ def test_hybrid_rrf(monkeypatch=None):
     assert rows[0]["message_id"] == "B"
     assert sorted(rows[0]["found_by"]) == ["fts", "vector"]
     assert [r["rank"] for r in rows] == [1, 2, 3]
+
+
+def test_old_index_counts():
+    with tempfile.TemporaryDirectory() as tmp:
+        db = Path(tmp) / "old.sqlite"
+        con = sqlite3.connect(db)
+        con.executescript("""
+            CREATE TABLE messages (content_searchable TEXT NOT NULL);
+            CREATE VIRTUAL TABLE messages_fts USING fts5(content_searchable);
+        """)
+        rows = [("ค้นหาข้อความเก่าในห้องแชท",), ("ค้นหาข้อความ",), ("unrelated",)]
+        con.executemany("INSERT INTO messages VALUES (?)", rows)
+        con.executemany("INSERT INTO messages_fts(content_searchable) VALUES (?)", rows)
+        con.commit()
+        con.close()
+
+        # FTS5's tokenization is stricter than substring LIKE for this Thai text.
+        assert old_index_counts(db, "ค้นหาข้อความ") == {"ground_truth": 2, "old_fts5": 1}
 
 
 if __name__ == "__main__":

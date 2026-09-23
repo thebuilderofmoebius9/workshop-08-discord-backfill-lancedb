@@ -173,7 +173,7 @@ FIELDS = ["message_id", "author_name", "content", "created_at", "channel_name"]
 
 def search_fts(table, query: str, limit: int = 10) -> list[dict[str, Any]]:
     try:
-        rows = table.search(query, query_type="fts").select(FIELDS).limit(limit).to_list()
+        rows = table.search(query, query_type="fts").select(FIELDS + ["_score"]).limit(limit).to_list()
     except Exception:
         return []
     for rank, row in enumerate(rows, 1):
@@ -184,7 +184,7 @@ def search_fts(table, query: str, limit: int = 10) -> list[dict[str, Any]]:
 
 def search_vector(table, query: str, limit: int = 10) -> list[dict[str, Any]]:
     vector = embed([query])[0]
-    rows = table.search(vector).select(FIELDS).limit(limit).to_list()
+    rows = table.search(vector).select(FIELDS + ["_distance"]).limit(limit).to_list()
     for rank, row in enumerate(rows, 1):
         row["rank"] = rank
         row["score"] = round(1 - row.pop("_distance", 1.0), 4)
