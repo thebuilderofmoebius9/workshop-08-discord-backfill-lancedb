@@ -42,7 +42,11 @@ python -m discord_backfill.cli fetch-discord --channel-id ... --guild-id ... \
 .venv/bin/python -m lance_backfill.cli status --db out/lance
 
 # 4. web UI  →  http://127.0.0.1:8099
-.venv/bin/python -m lance_backfill.cli web --db out/lance --port 8099
+#    --old-db enables per-query LIKE ground truth + old FTS5 comparison
+#    --trace-log persists the query trace across server restarts
+.venv/bin/python -m lance_backfill.cli web --db out/lance \
+  --old-db /tmp/ws08data/old/old-3k.sqlite \
+  --trace-log artifacts/query-trace.jsonl --port 8099
 
 # 5. head-to-head vs the SQLite app
 .venv/bin/python compare.py --old-repo ../workshop-05-backfill-midterm \
@@ -53,6 +57,8 @@ python -m discord_backfill.cli fetch-discord --channel-id ... --guild-id ... \
 
 - `lance_backfill/pipeline.py` — ingest, redact, embed, index, parity, 3 searchers
 - `lance_backfill/web.py` — the UI (stdlib `http.server`, one page, no build step)
+- UI views: Discord-style chat/search, index `stats`, and persisted `query trace log`
+- Every search shows the three-way evidence card: `LIKE ground truth` · old `SQLite/FTS5` · `LanceDB (selected mode)`
 - `compare.py` — 10 queries × 4 engines → precision@10, latency, index size
 - `tests/test_pipeline.py` — `python tests/test_pipeline.py`, no framework
 - `artifacts/` — comparison report + UI screenshots

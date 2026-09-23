@@ -29,6 +29,8 @@ def main() -> None:
     p.add_argument("--db", required=True, type=Path)
     p.add_argument("--port", type=int, default=8099)
     p.add_argument("--host", default="127.0.0.1")
+    p.add_argument("--old-db", type=Path, help="workshop-05 SQLite index, for the live per-query compare")
+    p.add_argument("--trace-log", type=Path, help="append every query here as JSONL")
 
     args = parser.parse_args()
     if args.command == "backfill":
@@ -40,7 +42,7 @@ def main() -> None:
     else:
         from .web import serve
 
-        serve(args.db, args.host, args.port)
+        serve(args.db, args.host, args.port, args.old_db, args.trace_log)
         return
     print(json.dumps(out, ensure_ascii=False, indent=2))
 
